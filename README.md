@@ -270,7 +270,7 @@ $$w = \frac{x_{\max} - x_{\min}}{W}, \quad h = \frac{y_{\max} - y_{\min}}{H}$$
 All 1,440 training annotations and 360 validation annotations were structured in `results/detection_dataset/yolo_dataset/` with accompanying YAML configuration:
 
 ```yaml
-path: C:/Users/Admin/Downloads/NEU_FYP/results/detection_dataset/yolo_dataset
+path: C:/Users/Admin/Downloads/SteelSurface-Defect-Inspection/results/detection_dataset/yolo_dataset
 train: images/train
 val: images/validation
 names:
@@ -628,7 +628,7 @@ The repository includes Grad-CAM saliency heatmaps generated across all six defe
 A clean, annotated representation of the actual repository layout:
 
 ```text
-NEU_FYP/
+SteelSurface-Defect-Inspection/
 ├── app.py                                  # Interactive Streamlit web application dashboard
 ├── yolo11n.pt                              # Base pretrained YOLO11n model weights (Ultralytics)
 │
@@ -748,8 +748,8 @@ Clone the repository and set up an isolated Python virtual environment:
 
 ```bash
 # Clone the repository
-git clone https://github.com/<your-username>/NEU_FYP.git
-cd NEU_FYP
+git clone https://github.com/<your-username>/SteelSurface-Defect-Inspection.git
+cd SteelSurface-Defect-Inspection
 
 # Create a virtual environment named .venv
 python -m venv .venv
