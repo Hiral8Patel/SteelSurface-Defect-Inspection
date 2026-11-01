@@ -1,0 +1,16 @@
+{
+    "train_images": 1440,
+    "train_labels": 1440,
+    "validation_images": 360,
+    "validation_labels": 360,
+    "classes": {
+        "0": "crazing",
+        "1": "inclusion",
+        "2": "patches",
+        "3": "pitted_surface",
+        "4": "rolled-in_scale",
+        "5": "scratches"
+    },
+    "image_storage_method": "Windows hard links",
+    "source_dataset": "C:\\Users\\Admin\\Downloads\\archive\\NEU-DET"
+}

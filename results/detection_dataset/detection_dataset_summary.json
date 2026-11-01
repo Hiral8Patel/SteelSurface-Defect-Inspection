@@ -1,0 +1,43 @@
+{
+  "dataset": "NEU-DET",
+  "classes": [
+    "crazing",
+    "inclusion",
+    "patches",
+    "pitted_surface",
+    "rolled-in_scale",
+    "scratches"
+  ],
+  "class_to_id": {
+    "crazing": 0,
+    "inclusion": 1,
+    "patches": 2,
+    "pitted_surface": 3,
+    "rolled-in_scale": 4,
+    "scratches": 5
+  },
+  "train": {
+    "images": 1440,
+    "boxes": 3335,
+    "class_distribution": {
+      "crazing": 527,
+      "patches": 688,
+      "inclusion": 852,
+      "pitted_surface": 345,
+      "rolled-in_scale": 496,
+      "scratches": 427
+    }
+  },
+  "validation": {
+    "images": 360,
+    "boxes": 854,
+    "class_distribution": {
+      "crazing": 162,
+      "inclusion": 159,
+      "patches": 193,
+      "pitted_surface": 87,
+      "rolled-in_scale": 132,
+      "scratches": 121
+    }
+  }
+}

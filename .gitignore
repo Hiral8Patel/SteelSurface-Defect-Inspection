@@ -1,0 +1,22 @@
+# Virtual environment
+.venv/
+venv/
+ENV/
+env/
+
+# Python bytecode & cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+src/__pycache__/
+
+# IDE and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary inspection run artifacts
+results/figures/final_inspection/tmp*

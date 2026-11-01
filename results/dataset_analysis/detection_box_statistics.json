@@ -1,0 +1,92 @@
+{
+    "image_size": {
+        "width": 200,
+        "height": 200
+    },
+    "classes": {
+        "crazing": {
+            "image_count": 60,
+            "box_count": 162,
+            "average_width_px": 137.21,
+            "average_height_px": 72.62,
+            "average_area_px2": 9889.08,
+            "median_area_px2": 9691.0,
+            "average_image_coverage_percent": 24.72,
+            "boxes_below_5_percent": 0,
+            "boxes_below_5_percent_ratio": 0.0,
+            "boxes_below_2_percent": 0,
+            "boxes_below_2_percent_ratio": 0.0
+        },
+        "inclusion": {
+            "image_count": 71,
+            "box_count": 159,
+            "average_width_px": 26.31,
+            "average_height_px": 93.38,
+            "average_area_px2": 2760.47,
+            "median_area_px2": 1659.0,
+            "average_image_coverage_percent": 6.9,
+            "boxes_below_5_percent": 90,
+            "boxes_below_5_percent_ratio": 56.6,
+            "boxes_below_2_percent": 28,
+            "boxes_below_2_percent_ratio": 17.61
+        },
+        "patches": {
+            "image_count": 73,
+            "box_count": 193,
+            "average_width_px": 53.61,
+            "average_height_px": 77.17,
+            "average_area_px2": 4487.87,
+            "median_area_px2": 3500.0,
+            "average_image_coverage_percent": 11.22,
+            "boxes_below_5_percent": 47,
+            "boxes_below_5_percent_ratio": 24.35,
+            "boxes_below_2_percent": 4,
+            "boxes_below_2_percent_ratio": 2.07
+        },
+        "pitted_surface": {
+            "image_count": 60,
+            "box_count": 87,
+            "average_width_px": 127.18,
+            "average_height_px": 173.83,
+            "average_area_px2": 22601.98,
+            "median_area_px2": 23353.0,
+            "average_image_coverage_percent": 56.5,
+            "boxes_below_5_percent": 0,
+            "boxes_below_5_percent_ratio": 0.0,
+            "boxes_below_2_percent": 0,
+            "boxes_below_2_percent_ratio": 0.0
+        },
+        "rolled-in_scale": {
+            "image_count": 60,
+            "box_count": 132,
+            "average_width_px": 84.8,
+            "average_height_px": 89.48,
+            "average_area_px2": 7807.3,
+            "median_area_px2": 7573.0,
+            "average_image_coverage_percent": 19.52,
+            "boxes_below_5_percent": 7,
+            "boxes_below_5_percent_ratio": 5.3,
+            "boxes_below_2_percent": 1,
+            "boxes_below_2_percent_ratio": 0.76
+        },
+        "scratches": {
+            "image_count": 60,
+            "box_count": 121,
+            "average_width_px": 149.68,
+            "average_height_px": 28.72,
+            "average_area_px2": 3819.77,
+            "median_area_px2": 3546.0,
+            "average_image_coverage_percent": 9.55,
+            "boxes_below_5_percent": 28,
+            "boxes_below_5_percent_ratio": 23.14,
+            "boxes_below_2_percent": 1,
+            "boxes_below_2_percent_ratio": 0.83
+        }
+    },
+    "overall": {
+        "validation_images": 360,
+        "average_boxes_per_image": 2.372,
+        "median_boxes_per_image": 2.0,
+        "maximum_boxes_per_image": 8
+    }
+}

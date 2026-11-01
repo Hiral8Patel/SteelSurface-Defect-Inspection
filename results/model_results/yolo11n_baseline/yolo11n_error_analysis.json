@@ -1,0 +1,64 @@
+{
+    "validation_images": 360,
+    "images_with_predictions": 308,
+    "images_without_predictions": 52,
+    "total_predictions": 669,
+    "ground_truth_boxes": {
+        "crazing": 162,
+        "inclusion": 159,
+        "patches": 193,
+        "pitted_surface": 87,
+        "rolled-in_scale": 132,
+        "scratches": 121
+    },
+    "predicted_boxes": {
+        "crazing": 19,
+        "inclusion": 172,
+        "patches": 188,
+        "pitted_surface": 68,
+        "rolled-in_scale": 90,
+        "scratches": 132
+    },
+    "average_confidence": {
+        "crazing": {
+            "count": 19,
+            "average": 0.3202,
+            "minimum": 0.2519,
+            "maximum": 0.4956
+        },
+        "inclusion": {
+            "count": 172,
+            "average": 0.5452,
+            "minimum": 0.2531,
+            "maximum": 0.8932
+        },
+        "patches": {
+            "count": 188,
+            "average": 0.6967,
+            "minimum": 0.2502,
+            "maximum": 0.9744
+        },
+        "pitted_surface": {
+            "count": 68,
+            "average": 0.649,
+            "minimum": 0.2656,
+            "maximum": 0.8998
+        },
+        "rolled-in_scale": {
+            "count": 90,
+            "average": 0.443,
+            "minimum": 0.2577,
+            "maximum": 0.7373
+        },
+        "scratches": {
+            "count": 132,
+            "average": 0.6582,
+            "minimum": 0.2523,
+            "maximum": 0.9454
+        }
+    },
+    "ground_truth_boxes_in_zero_prediction_images": {
+        "crazing": 113,
+        "rolled-in_scale": 15
+    }
+}
