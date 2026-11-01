@@ -115,31 +115,31 @@ To overcome the shortcomings of isolated classification or isolated object detec
 ```mermaid
 graph TB
     subgraph UI["Streamlit User Interface (app.py)"]
-        A[User Uploads Steel Surface Image<br/>JPG / PNG / JPEG]
-        DisplayMetric[Metric Cards & Probabilities Bar Chart]
-        DisplayVisuals[Detection Overlay & Grad-CAM Display]
-        ExportJSON[Downloadable JSON Inspection Report]
+        A["User Uploads Steel Surface Image<br/>JPG / PNG / JPEG"]
+        DisplayMetric["Metric Cards & Probabilities Bar Chart"]
+        DisplayVisuals["Detection Overlay & Grad-CAM Display"]
+        ExportJSON["Downloadable JSON Inspection Report"]
     end
 
     subgraph Core["Final Inspection Pipeline (final_inspection_pipeline.py)"]
-        Preproc[Image Preprocessing<br/>BGR to RGB / 224x224 / [0, 1] Normalization]
+        Preproc["Image Preprocessing<br/>BGR to RGB / 224x224 / 0.0 to 1.0 Normalization"]
         
         subgraph ClassificationBranch["1. Classification Branch"]
-            MNet[MobileNetV2 Transfer Learning<br/>ImageNet Backbone + GAP + Dropout + Softmax]
-            ClassOut[Predicted Defect & 6-Class Probability Vector]
+            MNet["MobileNetV2 Transfer Learning<br/>ImageNet Backbone + GAP + Dropout + Softmax"]
+            ClassOut["Predicted Defect & 6-Class Probability Vector"]
         end
 
         subgraph DetectionBranch["2. Localization Branch"]
-            YoloModel[YOLO11n Nano Object Detector<br/>Confidence Threshold = 0.10 / imgsz = 224]
-            BoxFilter[Bounding Boxes & Coordinate Extraction]
+            YoloModel["YOLO11n Nano Object Detector<br/>Confidence Threshold = 0.10 / imgsz = 224"]
+            BoxFilter["Bounding Boxes & Coordinate Extraction"]
         end
 
         subgraph ExplainabilityBranch["3. Explainability Branch"]
-            GradCamEngine[Grad-CAM Engine<br/>Target Layer: Conv_1 / Gradient Backpropagation]
-            HeatmapGen[Jet Colormap Overlay Generation]
+            GradCamEngine["Grad-CAM Engine<br/>Target Layer: Conv_1 / Gradient Backpropagation"]
+            HeatmapGen["Jet Colormap Overlay Generation"]
         end
         
-        ReportGen[Report Aggregator<br/>Results JSON Synthesis & Visual Export]
+        ReportGen["Report Aggregator<br/>Results JSON Synthesis & Visual Export"]
     end
 
     A --> Preproc
@@ -162,28 +162,28 @@ graph TB
 
 ```mermaid
 flowchart TD
-    Start([Input Image Loaded]) --> Validate{File Exists & Valid?}
-    Validate -- No --> ErrorTerm([Raise File Error])
-    Validate -- Yes --> Preprocess[Read Image via OpenCV<br/>Convert BGR to RGB<br/>Resize to 224x224<br/>Scale values to 0.0 - 1.0]
+    Start(["Input Image Loaded"]) --> Validate{"File Exists & Valid?"}
+    Validate -- No --> ErrorTerm(["Raise File Error"])
+    Validate -- Yes --> Preprocess["Read Image via OpenCV<br/>Convert BGR to RGB<br/>Resize to 224x224<br/>Scale values to 0.0 - 1.0"]
     
-    Preprocess --> Classify[Execute MobileNetV2 Forward Pass]
-    Classify --> CalcScores[Extract Top-1 Class & Softmax Probabilities]
+    Preprocess --> Classify["Execute MobileNetV2 Forward Pass"]
+    Classify --> CalcScores["Extract Top-1 Class & Softmax Probabilities"]
     
-    Preprocess --> Detect[Execute YOLO11n Inference<br/>conf=0.10, imgsz=224]
-    Detect --> ParseBoxes[Parse Bounding Boxes, Labels & Confidences]
+    Preprocess --> Detect["Execute YOLO11n Inference<br/>conf=0.10, imgsz=224"]
+    Detect --> ParseBoxes["Parse Bounding Boxes, Labels & Confidences"]
     
-    CalcScores --> CamGrad[Extract Conv_1 Activations & Backpropagate Class Gradient]
-    CamGrad --> CamPool[Compute Channel-Wise Mean Gradients]
-    CamPool --> CamHeat[Weight Feature Maps & Apply ReLU Saliency]
-    CamHeat --> CamBlend[Resize to 224x224 & Overlay Jet Heatmap onto Original]
+    CalcScores --> CamGrad["Extract Conv_1 Activations & Backpropagate Class Gradient"]
+    CamGrad --> CamPool["Compute Channel-Wise Mean Gradients"]
+    CamPool --> CamHeat["Weight Feature Maps & Apply ReLU Saliency"]
+    CamHeat --> CamBlend["Resize to 224x224 & Overlay Jet Heatmap onto Original"]
 
-    ParseBoxes --> DrawBoxes[Draw Bounding Boxes on Original Image via OpenCV]
+    ParseBoxes --> DrawBoxes["Draw Bounding Boxes on Original Image via OpenCV"]
     
-    DrawBoxes --> Combine[Consolidate Metrics, Detections, Explanations]
+    DrawBoxes --> Combine["Consolidate Metrics, Detections, Explanations"]
     CamBlend --> Combine
     CalcScores --> Combine
-    Combine --> SaveFigures[Persist Detection Image, Grad-CAM Image, and JSON to results/figures/final_inspection]
-    SaveFigures --> ReturnStreamlit([Render Results to Web Dashboard])
+    Combine --> SaveFigures["Persist Detection Image, Grad-CAM Image, and JSON"]
+    SaveFigures --> ReturnStreamlit(["Render Results to Web Dashboard"])
 ```
 
 ### 2.3 Core Pipeline Modules & Data Flow
